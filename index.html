@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>APOD</title>
+    <link href="styles.css" rel="stylesheet">
+    <link rel="preconnect" href="https://api.nasa.gov">
+    <link href="https://fonts.googleapis.com/css2?family=Radio+Canada:wght@400;700&display=swap" rel="stylesheet">
+</head>
+
+<body>
+    <h1 class="text-center">Astronomy Picture of the Day</h1>
+
+    <div class="parent">
+        <div>
+            <label for="datesCheckbox">Date range</label>
+            <input type="checkbox" id="datesCheckbox" onchange="stateCheckboxChanged()">
+            <div id="dateRange" class="dateRange" hidden>
+                <input type="date" id="startDate" class="date" onchange="stateChanged()">
+                -
+                <input type="date" id="endDate" class="date" onchange="stateChanged()">
+            </div>
+            <input type="date" id="date" class="date" onchange="stateChanged()">
+            <button class="btn clr-prpl" onclick="getLinkToImage()">Search</button>
+        </div>
+    </div>
+    <div id="data">
+        <div class="parent">
+            <div id="navigation" class="navigation" hidden>
+                <img src="right-arrow.svg" class="control-icon mirror-me" onclick="prevClick()">
+                <label id="count"></label>
+                <img src="right-arrow.svg" class="control-icon" onclick="nextClick()">
+            </div>
+        </div>
+
+        <h4 id="dateText" class="text-center"></h4>
+        <h2 class="text-center" id="title"></h1>
+        <img id="image" class="img-center">
+        <div id="video-cont">
+            <iframe id="video"></iframe>
+        </div>
+        <p id="explanation"></p>
+    </div>
+    <div id="loading" hidden>
+        <div id="fountainG">
+            <div id="fountainG_1" class="fountainG"></div>
+            <div id="fountainG_2" class="fountainG"></div>
+            <div id="fountainG_3" class="fountainG"></div>
+            <div id="fountainG_4" class="fountainG"></div>
+            <div id="fountainG_5" class="fountainG"></div>
+            <div id="fountainG_6" class="fountainG"></div>
+            <div id="fountainG_7" class="fountainG"></div>
+            <div id="fountainG_8" class="fountainG"></div>
+        </div>
+    </div>
+</body>
+<script type="text/javascript" src="script.js"></script>
+
+</html>
