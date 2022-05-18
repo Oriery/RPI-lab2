@@ -30,25 +30,11 @@ function printInfo() {
         image.removeAttribute('hidden');
         image.src = APODS[currentIndex].url;
     }
-    
+
     count.textContent = `${currentIndex + 1}/${APODS.length}`
 }
 
-function nextClick() {
-    if (currentIndex < APODS.length - 1) {
-        currentIndex++;
-    }
-    printInfo();
-}
-
-function prevClick() {
-    if (currentIndex > 0) {
-        currentIndex--;
-    }
-    printInfo();
-}
-
-function stateChanged() {    
+function stateChanged() {
     localStorage.setItem("Range", checkbox.checked);
     localStorage.setItem("Date", date.value)
     localStorage.setItem("StartDate", dateStart.value);
@@ -63,7 +49,7 @@ function stateCheckboxChanged() {
     stateChanged();
 }
 
-function setIsDateRange(isRange){
+function setIsDateRange(isRange) {
     if (isRange) {
         date.setAttribute('hidden', '');
         dateStart.value = date.value;
@@ -149,9 +135,23 @@ function setSiteState(siteState) {
     }
 }
 
-function myKeyPress(e){
+function myKeyPress(e) {
     var keynum;
-    if(e.which == 13) { // Enter
+    if (e.which == 13) { // Enter
         getLinkToImage();
     }
+}
+
+function nextClick() {
+    if (currentIndex < APODS.length - 1) {
+        currentIndex++;
+    }
+    printInfo();
+}
+
+function prevClick() {
+    if (currentIndex > 0) {
+        currentIndex--;
+    }
+    printInfo();
 }
